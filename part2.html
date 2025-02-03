@@ -4,11 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <hgroup>
-            <title>
-                Matthew Williams Portfolio
-            </title>
-        </hgroup>
+        <title>
+            Matthew Williams Portfolio
+        </title>
         <style>
             redLI {
                 color: red;
@@ -37,7 +35,7 @@
             }
 
             customElements.define('hello-world', HelloWorld);
-
+            
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d"); 
             
@@ -52,7 +50,7 @@
             </div>
           </template>
         <header>
-            <span>
+            <hgroup>
                 <h1> Welcome to my Portfolio</h1>
                 <hr>
                 <br>
@@ -62,7 +60,7 @@
                 <h3>Some of my favorite hobbies are: </h3>
                 <ol>
                     <li><redLI>Cooking</redLI></li>
-                    <li>Working out</li>
+                    <li><span style="color:blue">Working out</span></li>
                     <li>Playing video games</li>
                 </ol>
                 <h3>What is your favorite fruit? </h3>
@@ -82,8 +80,8 @@
                     <option value="Cucumber">
                     <option value="Other">
                 </datalist>
-                This website is to show off my <strong>skills</strong> in <i>front end development</i> as well as provide a location to browse my other projects and learn a little about who I am.
-            </span>
+            </hgroup>
+            <p>This website is to show off my <strong>skills</strong> in <i>front end development</i> as well as provide a location to browse my other projects and learn a little about who I am. </p>
             <figure>
                 <img src="giraffe.jpg" alt="Temporary placeholder for my professional headshot">
                 <figcaption>This is a temporary placeholder for my professional headshot</figcaption>
@@ -112,7 +110,7 @@
             <pre>Here's some code:
             <code>println "Welcome to my website!"</code>
             </pre>
-            <table>
+            <table border="1">
                 <caption>List of my favorite sports teams</caption>
                 <colgroup>
                     <col span="3" style="background-color: green;">
