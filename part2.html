@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="=UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+        <title>
+            Matthew Williams Portfolio
+        </title>
         <style>
             redLI {
                 color: red;
@@ -13,11 +15,17 @@
                 border: solid black;
             }
         </style>
-        <title>
-            Matthew Williams Portfolio
-        </title>
+    </head>
+
+    <body>
         <canvas id="myCanvas" width="500" height="300"></canvas>
         <hello-world></hello-world>
+        <dialog open>
+            <p>Hello site visitor!</p>
+            <form method="dialog">
+              <button>Dismiss</button>
+            </form>
+        </dialog>
 
         <script>
             class HelloWorld extends HTMLElement {
@@ -27,6 +35,7 @@
             }
 
             customElements.define('hello-world', HelloWorld);
+            
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d"); 
             
@@ -34,14 +43,6 @@
             ctx.fillText("Hello, World!", 0, 50); 
 
         </script>
-        <dialog open>
-            <p>Hello site visitor!</p>
-            <form method="dialog">
-              <button>Dismiss</button>
-            </form>
-          </dialog>
-    </head>
-    <body>
         <template id="myName">
             <div class="myName">
               <h2>Matthew Williams</h2>
