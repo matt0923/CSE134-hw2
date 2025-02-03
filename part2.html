@@ -2,9 +2,13 @@
 <html>
     <head>
         <meta charset="=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
         <style>
+            redLI {
+                color: red;
+            }
             .box {
                 border: solid black;
             }
@@ -13,8 +17,16 @@
             Matthew Williams Portfolio
         </title>
         <canvas id="myCanvas" width="500" height="300"></canvas>
+<hello-world></hello-world>
 
         <script>
+            class HelloWorld extends HTMLElement {
+                connectedCallback() {
+                    console.log('Hello World!');
+                }
+            }
+
+            customElements.define('hello-world', HelloWorld);
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d"); 
             
@@ -47,7 +59,7 @@
                     <iframe src="https://ucsd.edu/" width="600" height="400" title="School website"></iframe>
                     <h3>Some of my favorite hobbies are: </h3>
                     <ol>
-                        <li>Cooking</li>
+                        <li><redLI>Cooking</redLI></li>
                         <li>Working out</li>
                         <li>Playing video games</li>
                     </ol>
@@ -75,7 +87,7 @@
                 <img src="image.webp" alt="Temporary placeholder for my professional headshot">
                 <figcaption>This is a temporary placeholder for my professional headshot</figcaption>
             </figure>
-            <audio src="Cool audio.mp3" loop controls></audio>
+            <audio src="CoolAudio.mp3" loop controls></audio>
             <blockquote>
                 "Never gonna give you up, never gonna let you down." - Rick Astley
               </blockquote>
@@ -130,12 +142,9 @@
                 <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
             </svg>
             <picture>
-                <picture>
-                    <source media="(min-width: 401px)" srcset="big cat.jpg">
-                    <source media="(max-width: 400px)" srcset="small.jpeg">
-                    <img src="end.webp" alt="end" style="width:auto;">
-                </picture>
-                
+                <source media="(min-width:601px)" srcset="bigcat.jpg">
+                <source media="(max-width:600px)" srcset="small.jpeg">
+                <img src="end.webp" alt="end" style="width:auto;">
             </picture>
             
         </main>
