@@ -3,13 +3,6 @@
     --primary-color: #000000;
   }
 
-@font-face {
-font-family: 'MyCustomFont';
-src: url('fonts/mycustomfont.woff2') format('woff2'),
-        url('fonts/mycustomfont.woff') format('woff');
-font-display: swap; 
-}
-
 body {
     font-family: var(--primary-font, Arial, sans-serif);
     color: var(--primary-color, blue); 
