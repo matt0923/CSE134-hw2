@@ -1,11 +1,32 @@
+:root {
+    --primary-font: 'MyCustomFont', Arial, sans-serif;
+    --primary-color: #000000;
+  }
+
+@font-face {
+font-family: 'MyCustomFont';
+src: url('fonts/mycustomfont.woff2') format('woff2'),
+        url('fonts/mycustomfont.woff') format('woff');
+font-display: swap; 
+}
+
+body {
+    font-family: var(--primary-font, Arial, sans-serif);
+    color: var(--primary-color, blue); 
+    padding: 2rem;
+  }
+
+.dynamic-viewport {
+width: 100dvw;
+height: 5dvh;
+}
+
 .top {
     display: grid;
     margin-left: 80%;
-    row-gap: 10px;
-    column-gap: 10px;
-    grid-template-columns: 100px 100px 100px 100px;
-    padding: 5px;
-    border: 2px;
+    column-gap: 50px;
+    grid-template-columns: 20% 20% 20% 20%;
+    padding: 10px;
 }
 
 .links {
@@ -13,7 +34,7 @@
     text-align: center;
 }
 
-.gridbox {
+.gridbox:has(#placeholder) {
     display: grid;
     background-color: rgb(255, 219, 88);
     height: 500px;
@@ -26,7 +47,7 @@
 }
 
 article {
-    background-size: cover; /* Forces the image to stretch to the element's dimensions */
+    background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
     display: grid;
@@ -46,14 +67,16 @@ article {
 }
 
 #proj {
-    
+    background-image: url("ss.png");
 }
 
 .articles {
     display: flex;
     justify-content: space-evenly; 
     gap: 2%;
-    flex-direction: row;
+    justify-content: center;  
+    align-items: center;      
+    gap: 2%;               
 }
 
 summary {
@@ -61,7 +84,7 @@ summary {
     height: 200px;
     width: 500px;
     text-align: center;
-    margin-top: 1%;
+    margin-top: 7%;
 }
 
 .summaries {
@@ -72,6 +95,7 @@ summary {
 }
 
 .figures {
+    margin-top: 10%;
     display: flex;
     justify-content: space-evenly; 
     gap: 2%;
@@ -102,10 +126,86 @@ button {
     width: 50%;              
     align-self: center;  
     transform: translateY(-100%);
-    /* Optional styling */
+    background-color: color-mix(in srgb, black 100%, white 0%);
+    color: white;
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    animation: bounce 2s infinite;
+}
 
+button:hover {
+    background-color: #0056b3;
+    background-color: color(display-p3 0 0.337 0.702, srgb 0 86 179);
+    animation: scale(1) translateY(-100%);
+}
+
+figcaption {
+    text-align: center;
+    align-content: center;
+}
+
+a:hover {
+    color: #0056b3;
+    color: color(display-p3 0 0.337 0.702, srgb 0 86 179);
+    transition:  0.5s ease 0.2s;
+}
+  
+/*Mobile*/
+@media only screen and (max-width: 480px) {
+    body {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .top {
+      margin-left: 0;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 5px;
+      column-gap: 5px;
+      padding: 2px;
+    }
+  
+    article,
+    summary,
+    figure {
+      width: 90%;  
+      height: 100px; 
+      margin-top: 10%;
+    }
+  
+    .articles,
+    .summaries,
+    .figures {
+      flex-direction: column;
+      gap: 5%;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    button {
+      width: 80%;
+      transform: none; 
+      margin-top: 20px;
+    }
+    .top {
+        margin-left: 0;               
+        grid-template-columns: 1fr 1fr;   
+    }
+  }
+  /*Laptop/Tablet*/
+  @media only screen and (max-width: 1024px) {
+    .articles,
+    .summaries,
+    .figures {
+      flex-direction: column;
+      gap: 5%;
+      justify-content: center;
+      align-items: center;
+    }
+    .top {
+        margin-left: 0; 
+        grid-template-columns: 1fr 1fr;   
+    }
 }
