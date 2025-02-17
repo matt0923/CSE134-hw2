@@ -1,0 +1,111 @@
+.top {
+    display: grid;
+    margin-left: 80%;
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-columns: 100px 100px 100px 100px;
+    padding: 5px;
+    border: 2px;
+}
+
+.links {
+    border: 2px;
+    text-align: center;
+}
+
+.gridbox {
+    display: grid;
+    background-color: rgb(255, 219, 88);
+    height: 500px;
+    box-shadow: 10px 5px 5px grey;
+}
+
+#placeholder {
+    text-align: center;
+    align-content: center;
+}
+
+article {
+    background-size: cover; /* Forces the image to stretch to the element's dimensions */
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    height: 200px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 10px 5px 5px grey;
+    margin-top: 4%;
+}
+
+#me {
+    background-image: url("giraffe.jpg");
+}
+
+#weight {
+    background-image: url("landscapewidemobile3x-stock-weights-169.jpg");
+}
+
+#proj {
+    
+}
+
+.articles {
+    display: flex;
+    justify-content: space-evenly; 
+    gap: 2%;
+    flex-direction: row;
+}
+
+summary {
+    display: grid;
+    height: 200px;
+    width: 500px;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.summaries {
+    display: flex;
+    justify-content: space-evenly; 
+    gap: 2%;
+    flex-direction: row;
+}
+
+.figures {
+    display: flex;
+    justify-content: space-evenly; 
+    gap: 2%;
+    flex-direction: row;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;   
+  width: 500px;            
+  height: 400px;           
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: lightblue;
+}
+
+
+footer {
+    margin-top: 10%;
+    text-align: center;
+    height: 100px;
+    box-shadow: 10px 5px 5px grey;
+    background-color: lightgray;
+}
+
+button {
+    margin-top: auto;         
+    width: 50%;              
+    align-self: center;  
+    transform: translateY(-100%);
+    /* Optional styling */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}

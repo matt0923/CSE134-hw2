@@ -1,181 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>
-            Matthew Williams Portfolio
-        </title>
-        <style>
-            redLI {
-                color: red;
-            }
-            .box {
-                border: solid black;
-            }
-            #blueLI {
-                color: blue;
-            }
-        </style>
-    </head>
-
-    <body>
-        <canvas id="myCanvas" width="500" height="300"></canvas>
-        <hello-world></hello-world>
-        <dialog open>
-            <p>Hello site visitor!</p>
-            <form method="dialog">
-              <button>Dismiss</button>
-            </form>
-        </dialog>
-
-        <script>
-            class HelloWorld extends HTMLElement {
-                connectedCallback() {
-                    console.log('Hello World!');
-                }
-            }
-
-            customElements.define('hello-world', HelloWorld);
-            
-            var canvas = document.getElementById("myCanvas");
-            var ctx = canvas.getContext("2d"); 
-            
-            ctx.font = "30px Arial"; 
-            ctx.fillText("Hello, World!", 0, 50); 
-
-        </script>
-        <template id="myName">
-            <div class="myName">
-              <h2>Matthew Williams</h2>
-              <p>That is my name.</p>
-            </div>
-          </template>
-        <header>
-            <hgroup>
-                <h1> Welcome to my Portfolio</h1>
-                <hr>
-                <br>
-                <h2>My name is Matthew Williams</h2>
-                <h3>A student studying Computer Science at UCSD</h3>
-                <iframe src="https://ucsd.edu/" width="600" height="400" title="School website"></iframe>
-                <h3>Some of my favorite hobbies are: </h3>
-                <ol>
-                    <li><redLI>Cooking</redLI></li>
-                    <li><span id="blueLI">Working out</span></li>
-                    <li>Playing video games</li>
-                </ol>
-                <h3>What is your favorite fruit? </h3>
-                <select>
-                    <optgroup label="Fruits">
-                    <option value="Apple">Apple</option>
-                    <option value="Orange">Orange</option>
-                    <option value="Banana">Banana</option>
-                    <option value="other">Other</option>
-                    </optgroup>
-                </select>
-                <h3>What is your favorite vegetable? </h3>
-                <input list="Veggies" name="veg" id="veg">
-                <datalist id="Veggies">
-                    <option value="Carrot">
-                    <option value="Broccoli">
-                    <option value="Cucumber">
-                    <option value="Other">
-                </datalist>
-            </hgroup>
-            <p>This website is to show off my <strong>skills</strong> in <i>front end development</i> as well as provide a location to browse my other projects and learn a little about who I am. </p>
-            <figure>
-                <img src="giraffe.jpg" alt="Temporary placeholder for my professional headshot">
-                <figcaption>This is a temporary placeholder for my professional headshot</figcaption>
-            </figure>
-            <audio src="CoolAudio.mp3" loop controls></audio>
-            <blockquote>
-                "Never gonna give you up, never gonna let you down." - Rick Astley
-              </blockquote>
-              
-            <video src="video.mp4" controls></video>
-            <br>
-            <cite>The Ultimate Showdown of Ultimate Destiny</cite>
-
-            <nav>
-                <div class="box">
-                    <ul>
-                        <li><a href="#about">About Me</a></li>
-                        <li><a href="#Projects">School projects</a></li>
-
-                    </ul>
-                </div>
-                <aside><em>These links describe the basic content that will be in my page</em></aside>
-            </nav>
-        </header>
-        <main>
-            <pre>Here's some code:
-            <code>println "Welcome to my website!"</code>
-            </pre>
-            <table border="1">
-                <caption>List of my favorite sports teams</caption>
-                <colgroup>
-                    <col span="3" class="teams">
-
-                </colgroup>
-                <tr>
-                    <th>Favorite football team</th>
-                    <th>Favorite basketball team</th>
-                    <th>Favorite baseball team</th>
-                </tr>
-                <tr>
-                    <td>New England Patriots</td>
-                    <td>Boston Celtics</td>
-                    <td>San Diego Padres</td>
-                </tr>
-            </table>
-            <p>This page will look a lot <del>worse</del> <ins>better</ins> after HW3.</p>
-            <dl>
-                <dt><dfn>HTML</dfn></dt>
-                <dd>Hypertext Markup Language, a standardized system for tagging text files to achieve font, color, graphic, and hyperlink effects on World Wide Web pages.</dd>
-            </dl>
-            <p>Computer Science is abbreviated <abbr title="Computer Science">CS</abbr></p>
-            <p>To print this page, press <kbd>Ctrl</kbd> + <kbd>p</kbd>, or if you're on mac, <kbd>Command</kbd> + <kbd>p</kbd>.</p>
-            <noscript>
-                <p>I see you don't have javascript enabled 👀</p>
-            </noscript>
-            <svg width="100" height="100">
-                <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-            </svg>
-            <picture>
-                <source media="(min-width:601px)" srcset="bigcat.jpg">
-                <source media="(max-width:600px)" srcset="small.jpeg">
-                <img src="end.webp" alt="end" style="width:auto;">
-            </picture>
-            
-        </main>
-        <footer>
-            <p><b>Contact me</b></p>
-            <search>
-                <form action="submit_email" method="post">
-                    <fieldset>
-                        <legend>By Email</legend>
-                        <label for="email">Enter email: </label>
-                        <input type="text" id="email" name="email" required>
-                        <button type="submit">Submit</button>
-                    </fieldset>
-                    <fieldset>
-                        <legend>By Phone</legend>
-                        <label for="phone">Enter phone number: </label>
-                        <textarea id="phone" name="phone" rows="1" cols="50" required></textarea>
-                        <button type="submit">Submit</button>
-                    </fieldset>
-                </form>
-            </search>
-            <details>
-                <summary>My contact info:</summary>
-                    <address>
-                        Email: <a href="mailto:fakeemail@gmail.com">Will replace this with real email in full portfolio site</a><br>
-                        Phone: <a href="tel:+123-456-7890">1-123-456-7890</a>
-                    </address>
-              </details>
-              
-        </footer>
-    </body>
+<meta charset="UTF-8">
+<title>Matthew Williams Portfolio </title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<style>
+</style>
+<body>
+    <nav class = "top">
+        <a href="https://github.com/matt0923" class="links">Link to <br> My Github</a>
+        <a href="https://www.linkedin.com/" class="links">Link to <br> LinkedIn</a>
+        <a href="https://mail.google.com/mail/u/2/#inbox?compose=jrjtXFBkBprWvzMnNzQvLVFlFQSvVvJnTLDTJNtzFdmLfkWNGLnmVTfFLSHTXCnRQlVKJvjq" class="links">Hyperlink to <br> Email Me</a>
+        <a href="#" class="links">&#9776;</a> 
+    </nav>
+    <main class="gridbox"> 
+        <h3 id="placeholder">Matthew Williams Portfolio</h3>
+    </main>
+    <!-- Made a container for all the articles -->
+    <div class="articles">
+        <article id="me">
+            About me
+        </article>
+        <article id="weight">
+            Hobbies/Interests
+        </article>
+        <article id="proj">
+            Featured Project
+        </article>
+    </div>
+    <!-- Made a container for all the summaries below the articles -->
+    <div class="articles">
+        <summary>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. A recusandae ratione amet doloribus, id facilis molestiae. Quis, pariatur accusamus! Error totam omnis beatae quisquam officiis animi nobis, ratione impedit alias?
+        </summary>
+        <summary>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?
+        </summary>
+        <summary>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident tempore cumque, nulla optio quasi facilis voluptas molestias, perspiciatis deleniti illum, quae blanditiis eveniet voluptates impedit. Obcaecati iste quae minus nisi!
+        </summary>
+    </div>
+    <div class="figures">
+        <figure>
+            <button>Go to </button>
+        </figure>
+        <figure>
+            <button>Go to </button>
+        </figure>
+        <figure>
+            <button>Go to </button>
+        </figure>
+    </div>
+    <footer>
+        Contact Me: <br>
+        Email: <a href="mailto:fakeemail@gmail.com">Will replace this with real email in full portfolio site</a><br>
+        Phone: <a href="tel:+123-456-7890">1-123-456-7890</a>
+    </footer>
+</body>
 </html>
