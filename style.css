@@ -35,6 +35,10 @@ a {
     color: white;
 }
 
+.black {
+    color:#000000;
+}
+
 .links {
     border: 2px;
     text-align: center;
