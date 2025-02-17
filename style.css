@@ -1,10 +1,10 @@
 :root {
-    --primary-font: Arial, sans-serif;
+    --primary-font: Arial, "Times New Roman", sans-serif;
     --primary-color: #000000;
   }
 
 body {
-    font-family: var(Arial, sans-serif);
+    font-family: var(--primary-font, Arial, "Times New Roman", sans-serif);
     color: var(--primary-color, blue); 
     padding: 2rem;
     background-color: #2f2f2f;
