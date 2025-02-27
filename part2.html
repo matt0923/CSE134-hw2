@@ -57,9 +57,16 @@
         </figure>
     </div>
     <footer>
-        Contact Me: <br>
-        Email: <a class="black" href="mailto:fakeemail@gmail.com">Will replace this with real email in full portfolio site</a><br>
-        Phone: <a class="black" href="tel:+123-456-7890">1-123-456-7890</a>
+        <form action="https://httpbin.org/post" method="post">
+            <label for="name">Name: <p style="color: red;">(required)</p></label>
+            <input type="text" id="name" name="name" required> <br><br>
+            <label for="email">Email: <p style="color: red;">(required)</p></label>
+            <input type="email" id="email" name="email" required> <br> <br>
+            <label for="comments">Comments:</label> 
+            <textarea id="comments" name="comments" rows="5" cols="20"></textarea> <br> <br>
+            <input type="hidden" name="possible_bot" value="true">  <br> <br>
+            <button type="submit" id="formbutton">Submit</button>
+        </form>
     </footer>
 </body>
 </html>
