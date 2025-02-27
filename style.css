@@ -231,8 +231,8 @@ form {
     margin: auto; 
   }
 
-  input[type="text"],
-  input[type="email"] {
-    height: 150%;
-    text-align: center;
-  }
+input[type="text"],
+input[type="email"] {
+height: 150%;
+text-align: center;
+}
