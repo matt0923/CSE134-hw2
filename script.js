@@ -183,7 +183,7 @@ const sampleData =
     "title": "Hobbies/Interests", 
     "img-src": "landscapewidemobile3x-stock-weights-169.jpg", 
     "img-alt": "Picture of weights", 
-    "description": "As far as hobbies I enjoy outside of work/school, the first one that comes to mind would be weightlifting. I have been consistently weightlifting for upwards of 4 years meaning that I am not only developing my brain at school, but also having the discipline to develop my body at the same time. In addition to this, I enjoy cooking/baking as well as sewing and surfing, and spending time with my family and friends. The link below the dumbbells will take you to my school's website, to le", 
+    "description": "As far as hobbies I enjoy outside of work/school, the first one that comes to mind would be weightlifting. I have been consistently weightlifting for upwards of 4 years meaning that I am not only developing my brain at school, but also having the discipline to develop my body at the same time. In addition to this, I enjoy cooking/baking as well as sewing and surfing, and spending time with my family and friends. The link below the dumbbells will take you to my school's website, which is the most time consuming of my hobbies. ", 
     "link": "https://ucsd.edu/"
     },
     {
