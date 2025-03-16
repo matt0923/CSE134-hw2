@@ -78,11 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
             root.style.setProperty("--bg-color", "#1e1e1e");
             root.style.setProperty("--text-color", "white");
             root.style.setProperty("--primary-color", "white");
+            root.style.setProperty("--hr-color", "white");
             localStorage.setItem("theme", "dark");
           } else {
             root.style.setProperty("--bg-color", "#ffffff");
             root.style.setProperty("--text-color", "black");
             root.style.setProperty("--primary-color", "black");
+            root.style.setProperty("--hr-color", "black");
             localStorage.setItem("theme", "light");
           }
       });
@@ -139,11 +141,13 @@ class ArticleCard extends HTMLElement {
             margin-top: 10%;
             margin-right: 50%;  
             }
-            p {
+            p#description {
             margin-left:60%;
-            transform: translateY(-200%);
+            transform: translateY(-110%);
             }
-            a {
+            a#readMore {
+            position: relative;
+            top: -100px;
             color: var(--link-color, blue);
             margin-right: 50%;
             text-decoration: none;
@@ -155,8 +159,9 @@ class ArticleCard extends HTMLElement {
             <source srcset="${imgSrc}" type="image/jpeg">
             <img src="${imgSrc}" alt="${imgAlt}">
             </picture>
-            <p>${description}</p>
-            <a href="${link}" target="_blank">Read More</a>
+            <p id="description">${description}</p>
+            <a href="${link}" target="_blank" id="readMore">Read More</a>
+            <hr>
         </div>
         `;
 
@@ -165,58 +170,34 @@ class ArticleCard extends HTMLElement {
 
 customElements.define('article-card', ArticleCard);
 
-[
-    {
-    "title": "About Me", 
-    "img-src": "giraffe.jpg", 
-    "img-alt": "About me picture (of giraffe)", 
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
-    "link": "https://www.linkedin.com/in/matthew-williams-4337942b6/"
-    },
-    {
-    "title": "Hobbies/Interests", 
-    "img-src": "landscapewidemobile3x-stock-weights-169.jpg", 
-    "img-alt": "Picture of weights", 
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
-    "link": "https://ucsd.edu/"
-    },
-    {
-    "title": "Featured Project", 
-    "img-src": "ss.png", 
-    "img-alt": "Screenshot of My Featured Project", 
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
-    "link": "https://github.com/cse110-sp24-group12/cse110-sp24-group12"
-    }
-]
-
 const sampleData = 
 [
     {
     "title": "About Me", 
     "img-src": "giraffe.jpg", 
     "img-alt": "About me picture (of giraffe)", 
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "description": "My name is Matthew Williams, a software engineering major at the University of California, San Diego, where I am hoping to graduate by December. I will then look for a job to apply what I learned during my time here at UCSD, hopefully on a large project I am interested in/subject I am passionate about. The link below the image of my favorite animal (the Giraffe) should bring you to my linkedin to learn more about who I am professionally. ", 
     "link": "https://www.linkedin.com/in/matthew-williams-4337942b6/"
     },
     {
     "title": "Hobbies/Interests", 
     "img-src": "landscapewidemobile3x-stock-weights-169.jpg", 
     "img-alt": "Picture of weights", 
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "description": "As far as hobbies I enjoy outside of work/school, the first one that comes to mind would be weightlifting. I have been consistently weightlifting for upwards of 4 years meaning that I am not only developing my brain at school, but also having the discipline to develop my body at the same time. In addition to this, I enjoy cooking/baking as well as sewing and surfing, and spending time with my family and friends. The link below the dumbbells will take you to my school's website, to le", 
     "link": "https://ucsd.edu/"
     },
     {
     "title": "Featured Project", 
     "img-src": "ss.png", 
     "img-alt": "Screenshot of My Featured Project", 
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "description": "The project that I chose to feature is my group project from a class I took last year called Software Engineering. This project taught me quite a bit about HTML, CSS, and JavaScript, as well as Agile practices. I worked in a team setting to develop a journal for software engineers to write down what they did that day and included features like a password page complete with an encryption to make the journal feel safe, a calendar to mark important dates/track meetings, and markdown support to easily transfer the code you pushed to the journal. The link below brings you to the github repository of the project I described.", 
     "link": "https://github.com/cse110-sp24-group12/cse110-sp24-group12"
     }
 ]
 
 localStorage.setItem('projects', JSON.stringify(sampleData));
 
-function createProjectCard(project) {
+  function createProjectCard(project) {
     const card = document.createElement('article-card');
     card.setAttribute('title', project.title);
     card.setAttribute('img-src', project["img-src"]);
@@ -238,15 +219,24 @@ function createProjectCard(project) {
       }
     });
 
-    // Load remote data on button click
     document.getElementById('loadRemote').addEventListener('click', function() {
-      // Clear the container
       document.getElementById('cards-container').innerHTML = '';
-      fetch('https://my-json-server.typicode.com/matt0923/CSE134-hw2/tree/hw5')
+      fetch('https://my-json-server.typicode.com/matt0923/134-data/db')
         .then(response => response.json())
-        .then(projects => {
-          projects.forEach(project => createProjectCard(project));
+        .then(data => {
+            const projects2 = data.projects;
+          projects2.forEach(project => createProjectCard(project));
         })
         .catch(error => console.error('Error fetching remote data:', error));
     });
+    document.getElementById('btn-projects').addEventListener('click', function() {
+        window.location.href = 'https://github.com/matt0923?tab=repositories';
+      });
+      
+      document.getElementById('funny-joke').addEventListener('click', function() {
+        window.location.href = 'https://blank.page/';
+      });
+      document.getElementById('btn-resume').addEventListener('click', function() {
+        window.open('FakeResume.jpg', '_blank');
+      });
   });

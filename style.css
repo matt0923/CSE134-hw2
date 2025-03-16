@@ -19,6 +19,7 @@ body {
     padding: 2rem;
   }
 
+
 .dynamic-viewport {
 width: 100dvw;
 height: 5dvh;
@@ -132,7 +133,8 @@ footer {
 }
 
 button {
-    margin-top: auto;         
+    margin-top: auto;   
+    display: inline; 
     width: 50%;              
     align-self: center;  
     transform: translateY(-100%);
@@ -307,4 +309,16 @@ text-align: center;
   
   .slider.round:before {
     border-radius: 50%;
+  }
+  #button-container {
+    display: flex;
+    gap: 10px; 
+  }
+
+  hr {
+    border: 1px solid;
+    margin: 20px 0;
+  }
+  a#customLink {
+    all: unset;
   }
