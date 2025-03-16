@@ -1,0 +1,26 @@
+{
+    "projects": [
+      {
+        "title": "About Me",
+        "img-src": "giraffe.jpg",
+        "img-alt": "About me picture (of giraffe)",
+        "description": "Lorem ipsum dolor sit amet, ...",
+        "link": "https://www.linkedin.com/in/yourprofile/"
+      },
+      {
+        "title": "Hobbies/Interests",
+        "img-src": "weights.jpg",
+        "img-alt": "Picture of weights",
+        "description": "Lorem ipsum dolor sit amet, ...",
+        "link": "https://example.com/"
+      },
+      {
+        "title": "Featured Project",
+        "img-src": "project.jpg",
+        "img-alt": "Screenshot of My Featured Project",
+        "description": "Lorem ipsum dolor sit amet, ...",
+        "link": "https://github.com/yourrepo"
+      }
+    ]
+  }
+  

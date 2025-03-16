@@ -101,3 +101,152 @@ document.addEventListener("DOMContentLoaded", () => {
         toggle.checked = false;
       }
 });
+
+class ArticleCard extends HTMLElement {
+    constructor() {
+        super();
+    }
+    
+    connectedCallback() {
+        const title = this.getAttribute('title');
+        const imgSrc = this.getAttribute('img-src');
+        const imgAlt = this.getAttribute('img-alt');
+        const description = this.getAttribute('description');
+        const link = this.getAttribute('link');
+
+        this.innerHTML = `
+        <style>
+            .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 1000px;  
+            margin: 0 auto;   
+            transform: translateX(-2%);
+            text-align: center;
+            }
+            picture img {
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center;
+            display: block;
+            height: 200px;
+            width: 500px;
+            box-shadow: 10px 5px 5px grey;
+            margin-top: 4%;
+            color: black;            
+            }
+            h2 {
+            margin-top: 10%;
+            margin-right: 50%;  
+            }
+            p {
+            margin-left:60%;
+            transform: translateY(-200%);
+            }
+            a {
+            color: var(--link-color, blue);
+            margin-right: 50%;
+            text-decoration: none;
+            }
+        </style>
+        <div class="card-container">
+            <h2>${title}</h2>
+            <picture>
+            <source srcset="${imgSrc}" type="image/jpeg">
+            <img src="${imgSrc}" alt="${imgAlt}">
+            </picture>
+            <p>${description}</p>
+            <a href="${link}" target="_blank">Read More</a>
+        </div>
+        `;
+
+  }
+}
+
+customElements.define('article-card', ArticleCard);
+
+[
+    {
+    "title": "About Me", 
+    "img-src": "giraffe.jpg", 
+    "img-alt": "About me picture (of giraffe)", 
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "link": "https://www.linkedin.com/in/matthew-williams-4337942b6/"
+    },
+    {
+    "title": "Hobbies/Interests", 
+    "img-src": "landscapewidemobile3x-stock-weights-169.jpg", 
+    "img-alt": "Picture of weights", 
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "link": "https://ucsd.edu/"
+    },
+    {
+    "title": "Featured Project", 
+    "img-src": "ss.png", 
+    "img-alt": "Screenshot of My Featured Project", 
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "link": "https://github.com/cse110-sp24-group12/cse110-sp24-group12"
+    }
+]
+
+const sampleData = 
+[
+    {
+    "title": "About Me", 
+    "img-src": "giraffe.jpg", 
+    "img-alt": "About me picture (of giraffe)", 
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "link": "https://www.linkedin.com/in/matthew-williams-4337942b6/"
+    },
+    {
+    "title": "Hobbies/Interests", 
+    "img-src": "landscapewidemobile3x-stock-weights-169.jpg", 
+    "img-alt": "Picture of weights", 
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "link": "https://ucsd.edu/"
+    },
+    {
+    "title": "Featured Project", 
+    "img-src": "ss.png", 
+    "img-alt": "Screenshot of My Featured Project", 
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet possimus sunt quam beatae officia facere, perspiciatis temporibus! Necessitatibus inventore magnam assumenda dolorum quod sit soluta nesciunt, beatae nihil quae?", 
+    "link": "https://github.com/cse110-sp24-group12/cse110-sp24-group12"
+    }
+]
+
+localStorage.setItem('projects', JSON.stringify(sampleData));
+
+function createProjectCard(project) {
+    const card = document.createElement('article-card');
+    card.setAttribute('title', project.title);
+    card.setAttribute('img-src', project["img-src"]);
+    card.setAttribute('img-alt', project["img-alt"]);
+    card.setAttribute('description', project.description);
+    card.setAttribute('link', project.link);
+    document.getElementById('cards-container').appendChild(card);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('loadLocal').addEventListener('click', function() {
+      document.getElementById('cards-container').innerHTML = '';
+      const storedProjects = localStorage.getItem('projects');
+      if (storedProjects) {
+        const projects = JSON.parse(storedProjects);
+        projects.forEach(project => createProjectCard(project));
+      } else {
+        console.error('No local data found.');
+      }
+    });
+
+    // Load remote data on button click
+    document.getElementById('loadRemote').addEventListener('click', function() {
+      // Clear the container
+      document.getElementById('cards-container').innerHTML = '';
+      fetch('https://my-json-server.typicode.com/matt0923/CSE134-hw2/tree/hw5')
+        .then(response => response.json())
+        .then(projects => {
+          projects.forEach(project => createProjectCard(project));
+        })
+        .catch(error => console.error('Error fetching remote data:', error));
+    });
+  });
